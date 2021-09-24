@@ -92,14 +92,17 @@ main article {
 
 article h1 {
   background-color: var(--bg-color);
+  border-radius: 3px;
   color: var(--header-color);
+  font-size: .765rem;
   font-variant: small-caps;
   font-weight: 400;
   letter-spacing: .735ch;
   margin: 0;
-  padding: 1ch 1.5ch 1.35ch 1.75ch;
+  padding: 1ch 1.35ch 1.35ch 7.65ch;
   position: absolute;
-  top: -5ch;
+  top: -6.5ch;
+  left: 1ch;
 }
 
 .button-alt {
