@@ -1,0 +1,141 @@
+:root {
+  --bg-color: rgb(35, 35, 35);
+  --button-border-color: rgb(195, 195, 195);
+  --header-color: rgb(235, 235, 235);
+  --button-alt-bg-color: rgb(85, 85, 85);
+  --menu-button-bg-color: rgb(95, 135, 135);
+  --nav-color: rgb(215, 215, 215);
+  --nav-button-bg-color: rgb(255, 255, 255);
+  --section-border: rgba(0, 0, 0, .2);
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: sans-serif;
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+header, nav, main, section {
+  display: flex;
+}
+
+header {
+  align-items: center;
+  color: var(--header-color);
+  font-size: 2rem;
+  font-variant: small-caps;
+  font-weight: 200;
+  height: 35%;
+  letter-spacing: .75ch;
+  justify-content: center;
+}
+
+nav {
+  align-items: center;
+  background-color: var(--nav-color);
+  box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  height: 5%;
+  min-height: 45px;
+}
+
+nav *:first-child {
+  margin-left: 1.935%;
+}
+
+nav *:last-child {
+  margin-right: 1.935%;
+}
+
+nav * {
+  margin: 0 .235%;
+}
+
+nav a, nav button {
+  background-color: var(--nav-button-bg-color);
+  border: 1px solid var(--button-border-color);
+  font-size: .535rem;
+  letter-spacing: .735ch;
+  padding: 5px 15px 5px 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition-duration: .35s;
+}
+
+main {
+  background-color: var(--header-color);
+  box-sizing: border-box;
+  height: 60%;
+  justify-content: space-around;
+  padding: 5% 0 0 0;
+}
+
+main section {
+  border: 1px solid var(--section-border);
+  flex-flow: column;
+  min-height: 45%;
+  max-height: 85%;
+  min-width: 45%;
+}
+
+main article {
+  border: 1px solid var(--section-border);
+  border-radius: 5px;
+  margin: 15% 5% 5% 5%;
+  max-height: 45%;
+  min-height: 15%;
+  position: relative;
+}
+
+article h1 {
+  background-color: var(--bg-color);
+  color: var(--header-color);
+  font-variant: small-caps;
+  font-weight: 400;
+  letter-spacing: .735ch;
+  margin: 0;
+  padding: 1ch 1.5ch 1.35ch 1.75ch;
+  position: absolute;
+  top: -5ch;
+}
+
+.button-alt {
+  color: var(--header-color);
+  background-color: var(--button-alt-bg-color);
+}
+
+.menu-button:hover {
+  filter: saturate(500%);
+}
+
+.button-alt:hover {
+  filter: sepia(.95) hue-rotate(-135deg);
+}
+
+button:active, .menu-button:active, .button-alt:active {
+  filter: saturate(.5%) brightness(.75) contrast(2);
+}
+
+.menu-button {
+  color: var(--header-color);
+  background-color: var(--menu-button-bg-color);
+  padding: 10px 15px 10px 45px;
+  position: relative;
+}
+
+.menu-button::before {
+  content: '|||';
+  font-weight: bold;
+  left: 7px;
+  letter-spacing: 0.2ch;
+  position: absolute;
+  top: 10px;
+  transform: rotateZ(90deg);
+}
+
+.hang-right {
+  margin-left: auto;
+}
