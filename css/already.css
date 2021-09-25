@@ -1,11 +1,14 @@
 :root {
-  --bg-color: rgb(35, 35, 35);
+  --bg-color: rgb(235, 235, 235);
   --button-border-color: rgb(195, 195, 195);
+  --header-bg-color: rgb(35, 35, 35);
   --header-color: rgb(235, 235, 235);
-  --button-alt-bg-color: rgb(85, 85, 85);
+  --button-alt-bg-color: rgb(65, 135, 285);
+  --section-bg-color: white;
   --menu-button-bg-color: rgb(95, 135, 135);
   --nav-color: rgb(215, 215, 215);
   --nav-button-bg-color: rgb(255, 255, 255);
+  --article-border: rgba(0, 0, 0, .1);
   --section-border: rgba(0, 0, 0, .2);
 }
 
@@ -13,23 +16,25 @@ body {
   background-color: var(--bg-color);
   font-family: sans-serif;
   font-size: 13px;
+  height: 100vh;
+  flex-flow: column;
   margin: 0;
   padding: 0;
-  height: 100vh;
 }
 
-header, nav, main, section {
+body, header, nav, main, section {
   display: flex;
 }
 
 header {
   align-items: center;
+  background-color: var(--header-bg-color);
   color: var(--header-color);
   font-size: 2rem;
   font-variant: small-caps;
   font-weight: 200;
-  height: 35%;
-  letter-spacing: .75ch;
+  padding: 9.735ch 3ch;
+  letter-spacing: .735ch;
   justify-content: center;
 }
 
@@ -54,9 +59,21 @@ nav * {
   margin: 0 .235%;
 }
 
+button {
+  background-color: var(--nav-button-bg-color);
+  border: 1px solid var(--section-border);
+  border-radius: 3px;
+  padding: 1.235ch 5ch;
+}
+
+button:active, .menu-button:active, .button-alt:active {
+  filter: saturate(.5%) brightness(.75) contrast(2);
+}
+
 nav a, nav button {
   background-color: var(--nav-button-bg-color);
   border: 1px solid var(--button-border-color);
+  border-radius: 0;
   font-size: .535rem;
   letter-spacing: .735ch;
   padding: 5px 15px 5px 18px;
@@ -66,32 +83,31 @@ nav a, nav button {
 }
 
 main {
-  background-color: var(--header-color);
+  background-color: var(--main-color);
   box-sizing: border-box;
-  height: 60%;
   justify-content: space-around;
-  padding: 5% 0 0 0;
+  padding: 5% 0 5% 0;
 }
 
 main section {
+  background-color: var(--section-bg-color);
   border: 1px solid var(--section-border);
+  box-sizing: content-box;
   flex-flow: column;
-  min-height: 45%;
-  max-height: 85%;
   min-width: 45%;
 }
 
 main article {
-  border: 1px solid var(--section-border);
+  border: 1px solid var(--article-border);
   border-radius: 5px;
+  box-sizing: content-box;
   margin: 15% 5% 5% 5%;
-  max-height: 45%;
-  min-height: 15%;
+  padding: 3ch 5ch;
   position: relative;
 }
 
 article h1 {
-  background-color: var(--bg-color);
+  background-color: var(--header-bg-color);
   border-radius: 3px;
   color: var(--header-color);
   font-size: .765rem;
@@ -105,6 +121,10 @@ article h1 {
   left: 2.365ch;
 }
 
+p {
+  padding: 1ch 2.35ch;
+}
+
 .button-alt {
   color: var(--header-color);
   background-color: var(--button-alt-bg-color);
@@ -115,11 +135,7 @@ article h1 {
 }
 
 .button-alt:hover {
-  filter: sepia(.95) hue-rotate(-135deg);
-}
-
-button:active, .menu-button:active, .button-alt:active {
-  filter: saturate(.5%) brightness(.75) contrast(2);
+  filter: saturate(.5);
 }
 
 .menu-button {
