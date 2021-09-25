@@ -1,11 +1,16 @@
 :root {
-  --bg-color: rgb(35, 35, 35);
+  --bg-color: rgb(235, 235, 235);
   --button-border-color: rgb(195, 195, 195);
+  --header-bg-color: rgb(35, 35, 35);
   --header-color: rgb(235, 235, 235);
-  --button-alt-bg-color: rgb(85, 85, 85);
+  --button-alt-bg-color: rgb(65, 135, 285);
+  --article-bg-color: white;
+  --article-box-shadow: 0 0 8px rgba(0, 0, 0, .1);
+  --section-bg-color: rgb(225, 225, 225);
   --menu-button-bg-color: rgb(95, 135, 135);
   --nav-color: rgb(215, 215, 215);
   --nav-button-bg-color: rgb(255, 255, 255);
+  --article-border: rgba(0, 0, 0, .1);
   --section-border: rgba(0, 0, 0, .2);
 }
 
@@ -13,23 +18,25 @@ body {
   background-color: var(--bg-color);
   font-family: sans-serif;
   font-size: 13px;
+  height: 100vh;
+  flex-flow: column;
   margin: 0;
   padding: 0;
-  height: 100vh;
 }
 
-header, nav, main, section {
+body, header, nav, main, section, a {
   display: flex;
 }
 
 header {
   align-items: center;
+  background-color: var(--header-bg-color);
   color: var(--header-color);
   font-size: 2rem;
   font-variant: small-caps;
   font-weight: 200;
-  height: 35%;
-  letter-spacing: .75ch;
+  padding: 9.735ch 3ch;
+  letter-spacing: .735ch;
   justify-content: center;
 }
 
@@ -54,44 +61,62 @@ nav * {
   margin: 0 .235%;
 }
 
+button {
+  background-color: var(--nav-button-bg-color);
+  border: 1px solid var(--section-border);
+  border-radius: 3px;
+  padding: 1.235ch 5ch;
+}
+
 nav a, nav button {
+  align-items: center;
   background-color: var(--nav-button-bg-color);
   border: 1px solid var(--button-border-color);
+  border-radius: 0;
   font-size: .535rem;
+  height: 35px;
   letter-spacing: .735ch;
-  padding: 5px 15px 5px 18px;
+  padding: 0 3ch 0 4ch;
   text-decoration: none;
   text-transform: uppercase;
   transition-duration: .35s;
 }
 
 main {
-  background-color: var(--header-color);
+  background-color: var(--main-color);
   box-sizing: border-box;
-  height: 60%;
   justify-content: space-around;
-  padding: 5% 0 0 0;
+  padding: 5% 0 5% 0;
 }
 
 main section {
+  background-color: var(--section-bg-color);
   border: 1px solid var(--section-border);
+  box-sizing: content-box;
   flex-flow: column;
-  min-height: 45%;
-  max-height: 85%;
-  min-width: 45%;
+  min-width: 35%;
+  max-width: 47.5%;
 }
 
-main article {
-  border: 1px solid var(--section-border);
+main section:only-child {
+  max-width: 85%;
+}
+
+main section article {
+  height: 100%;
+  background-color: var(--article-bg-color);
+  border: 1px solid var(--article-border);
   border-radius: 5px;
-  margin: 15% 5% 5% 5%;
-  max-height: 45%;
-  min-height: 15%;
+  box-shadow: var(--article-box-shadow);
+  box-sizing: border-box;
+  line-height: 3ch;
+  margin: 9.35ch 5ch 5ch 5ch;
+  padding: 3ch 5ch;
   position: relative;
 }
 
 article h1 {
-  background-color: var(--bg-color);
+  background-color: var(--header-bg-color);
   border-radius: 3px;
   color: var(--header-color);
   font-size: .765rem;
@@ -99,10 +124,19 @@ article h1 {
   font-weight: 400;
   letter-spacing: .735ch;
   margin: 0;
-  padding: 1ch 1.35ch 1.35ch 7.65ch;
+  padding: 1ch 2.395ch 1.35ch 7.65ch;
   position: absolute;
   top: -6.5ch;
-  left: 1ch;
+  left: 2.365ch;
+}
+
+p {
+  line-height: 3.25ch;
+  padding: .35ch 2.35ch;
+}
+
+main section article p:last-of-type {
+  margin: 0 0 3.725ch 0;
 }
 
 .button-alt {
@@ -115,28 +149,55 @@ article h1 {
 }
 
 .button-alt:hover {
-  filter: sepia(.95) hue-rotate(-135deg);
+  filter: saturate(.5);
+}
+
+.menu-button {
+  background-color: var(--menu-button-bg-color);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+  color: var(--header-color);
+  padding: 2ch 3.25ch 2ch 9.365ch;
+  position: relative;
 }
 
 button:active, .menu-button:active, .button-alt:active {
   filter: saturate(.5%) brightness(.75) contrast(2);
 }
 
-.menu-button {
-  color: var(--header-color);
-  background-color: var(--menu-button-bg-color);
-  padding: 10px 15px 10px 45px;
-  position: relative;
-}
-
 .menu-button::before {
   content: '|||';
   font-weight: bold;
-  left: 7px;
+  left: 13px;
   letter-spacing: 0.2ch;
   position: absolute;
-  top: 10px;
+  top: 2.145ch;
   transform: rotateZ(90deg);
+  transition-duration: .25s;
+}
+
+.menu-button:hover:before {
+  transform: rotateZ(90deg) scaleY(.5);
+}
+
+.menu-button:active:before {
+  transform: rotateZ(90deg) scaleY(1.5);
+}
+
+.menu-button::after {
+  background-color: var(--header-color);
+  content: '';
+  height: 1px;
+  left: 9.35ch;
+  opacity: .235;
+  position: absolute;
+  right: 4ch;
+  top: 5.165ch;
+}
+
+.menu-button::after {
+  opacity: .475;
 }
 
 .hang-right {
