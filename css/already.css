@@ -22,7 +22,7 @@ body {
   padding: 0;
 }
 
-body, header, nav, main, section {
+body, header, nav, main, section, a {
   display: flex;
 }
 
@@ -71,12 +71,14 @@ button:active, .menu-button:active, .button-alt:active {
 }
 
 nav a, nav button {
+  align-items: center;
   background-color: var(--nav-button-bg-color);
   border: 1px solid var(--button-border-color);
   border-radius: 0;
   font-size: .535rem;
+  height: 35px;
   letter-spacing: .735ch;
-  padding: 5px 15px 5px 18px;
+  padding: 0 3ch 0 4ch;
   text-decoration: none;
   text-transform: uppercase;
   transition-duration: .35s;
