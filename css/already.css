@@ -4,7 +4,9 @@
   --header-bg-color: rgb(35, 35, 35);
   --header-color: rgb(235, 235, 235);
   --button-alt-bg-color: rgb(65, 135, 285);
-  --section-bg-color: white;
+  --article-bg-color: white;
+  --article-box-shadow: 0 0 8px rgba(0, 0, 0, .1);
+  --section-bg-color: rgb(225, 225, 225);
   --menu-button-bg-color: rgb(95, 135, 135);
   --nav-color: rgb(215, 215, 215);
   --nav-button-bg-color: rgb(255, 255, 255);
@@ -66,10 +68,6 @@ button {
   padding: 1.235ch 5ch;
 }
 
-button:active, .menu-button:active, .button-alt:active {
-  filter: saturate(.5%) brightness(.75) contrast(2);
-}
-
 nav a, nav button {
   align-items: center;
   background-color: var(--nav-button-bg-color);
@@ -96,14 +94,23 @@ main section {
   border: 1px solid var(--section-border);
   box-sizing: content-box;
   flex-flow: column;
-  min-width: 45%;
+  min-width: 35%;
+  max-width: 47.5%;
 }
 
-main article {
+main section:only-child {
+  max-width: 85%;
+}
+
+main section article {
+  height: 100%;
+  background-color: var(--article-bg-color);
   border: 1px solid var(--article-border);
   border-radius: 5px;
-  box-sizing: content-box;
-  margin: 15% 5% 5% 5%;
+  box-shadow: var(--article-box-shadow);
+  box-sizing: border-box;
+  line-height: 3ch;
+  margin: 9.35ch 5ch 5ch 5ch;
   padding: 3ch 5ch;
   position: relative;
 }
@@ -124,7 +131,12 @@ article h1 {
 }
 
 p {
-  padding: 1ch 2.35ch;
+  line-height: 3.25ch;
+  padding: .35ch 2.35ch;
+}
+
+main section article p:last-of-type {
+  margin: 0 0 3.725ch 0;
 }
 
 .button-alt {
@@ -150,6 +162,10 @@ p {
   position: relative;
 }
 
+button:active, .menu-button:active, .button-alt:active {
+  filter: saturate(.5%) brightness(.75) contrast(2);
+}
+
 .menu-button::before {
   content: '|||';
   font-weight: bold;
@@ -162,10 +178,11 @@ p {
 }
 
 .menu-button:hover:before {
-  left: 9px;
-  letter-spacing: .8ch;
-  opacity: 0.8;
-  top: 2.365ch;
+  transform: rotateZ(90deg) scaleY(.5);
+}
+
+.menu-button:active:before {
+  transform: rotateZ(90deg) scaleY(1.5);
 }
 
 .menu-button::after {
