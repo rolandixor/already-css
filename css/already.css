@@ -99,10 +99,10 @@ article h1 {
   font-weight: 400;
   letter-spacing: .735ch;
   margin: 0;
-  padding: 1ch 1.35ch 1.35ch 7.65ch;
+  padding: 1ch 2.395ch 1.35ch 7.65ch;
   position: absolute;
   top: -6.5ch;
-  left: 1ch;
+  left: 2.365ch;
 }
 
 .button-alt {
@@ -123,20 +123,46 @@ button:active, .menu-button:active, .button-alt:active {
 }
 
 .menu-button {
-  color: var(--header-color);
   background-color: var(--menu-button-bg-color);
-  padding: 10px 15px 10px 45px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+  color: var(--header-color);
+  padding: 2ch 3.25ch 2ch 9.365ch;
   position: relative;
 }
 
 .menu-button::before {
   content: '|||';
   font-weight: bold;
-  left: 7px;
+  left: 13px;
   letter-spacing: 0.2ch;
   position: absolute;
-  top: 10px;
+  top: 2.145ch;
   transform: rotateZ(90deg);
+  transition-duration: .25s;
+}
+
+.menu-button:hover:before {
+  left: 9px;
+  letter-spacing: .8ch;
+  opacity: 0.8;
+  top: 2.365ch;
+}
+
+.menu-button::after {
+  background-color: var(--header-color);
+  content: '';
+  height: 1px;
+  left: 9.35ch;
+  opacity: .235;
+  position: absolute;
+  right: 4ch;
+  top: 5.165ch;
+}
+
+.menu-button::after {
+  opacity: .475;
 }
 
 .hang-right {
