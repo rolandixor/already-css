@@ -1,14 +1,22 @@
 :root {
-  --bg-color: rgb(235, 235, 235);
+  --already-black: rgb(35, 35, 35);
+  --already-white: rgb(235, 235, 235);
+
+  --bg-color: var(--already-white);
   --button-border-color: rgb(195, 195, 195);
-  --header-bg-color: rgb(35, 35, 35);
-  --header-color: rgb(235, 235, 235);
+  --header-bg-color: var(--already-black);
+  --header-color: var(--already-white);
+  --heading2-color: var(--already-white);
+  --heading2-bg-color: rgb(85, 85, 85);
+  --heading2-shadow: 0 2px 8px rgba(0, 0, 0, .3);
   --button-alt-bg-color: rgb(65, 135, 285);
   --article-bg-color: white;
   --article-box-shadow: 0 0 8px rgba(0, 0, 0, .1);
   --section-bg-color: rgb(225, 225, 225);
   --menu-button-bg-color: rgb(95, 135, 135);
   --nav-color: rgb(215, 215, 215);
+  --sub-nav-bg-color: var(--already-black);
+  --sub-nav-color: var(--already-white);
   --nav-button-bg-color: rgb(255, 255, 255);
   --article-border: rgba(0, 0, 0, .1);
   --section-border: rgba(0, 0, 0, .2);
@@ -38,6 +46,18 @@ header {
   padding: 9.735ch 3ch;
   letter-spacing: .735ch;
   justify-content: center;
+  position: relative;
+}
+
+header span {
+  align-items: center;
+  display: flex;
+  font-size: .75rem;
+  justify-content: center;
+  letter-spacing: .395ch;
+  margin-top: 7.35ch;
+  padding: 5ch 1.65ch 0 0;
+  position: absolute;
 }
 
 nav {
@@ -59,6 +79,15 @@ nav *:last-child {
 
 nav * {
   margin: 0 .235%;
+}
+
+section nav {
+  background-color: var(--sub-nav-bg-color);
+  color: var(--sub-nav-color);
+  font-size: .65rem;
+  letter-spacing: .5ch;
+  padding: 0 5ch;
+  text-transform: uppercase;
 }
 
 button {
@@ -110,9 +139,21 @@ main section article {
   box-shadow: var(--article-box-shadow);
   box-sizing: border-box;
   line-height: 3ch;
-  margin: 9.35ch 5ch 5ch 5ch;
+  margin: 2.35ch 5ch 2.35ch 5ch;
   padding: 3ch 5ch;
   position: relative;
+}
+
+main section article:first-child {
+  margin-top: 10ch;
+}
+
+main section article:last-child {
+  margin-bottom: 5ch;
+}
+
+section nav ~ article {
+  margin-top: 8ch;
 }
 
 article h1 {
@@ -128,6 +169,20 @@ article h1 {
   position: absolute;
   top: -6.5ch;
   left: 2.365ch;
+}
+
+article h2 {
+  background-color: var(--heading2-bg-color);
+  border-radius: 3px;
+  box-shadow: var(--heading2-shadow);
+  color: var(--heading2-color);
+  font-size: .765rem;
+  font-variant: small-caps;
+  font-weight: 600;
+  letter-spacing: .735ch;
+  margin: 2ch 0 4ch 0;
+  padding: 1ch 2.395ch;
+  text-align: right;
 }
 
 p {
@@ -202,4 +257,8 @@ button:active, .menu-button:active, .button-alt:active {
 
 .hang-right {
   margin-left: auto;
+}
+
+@media only screen and (max-width: 768px) {
+
 }
